@@ -1,19 +1,31 @@
 class Node<T> {
     T val;
     Node<T> next;
-    
+
     public Node(T val) {
-      this.val = val;
-      this.next = null;
+        this.val = val;
+        this.next = null;
     }
-  }
-  
-  class Source {
+}
+
+class Source {
     public static <T> boolean linkedListFind(Node<T> head, T target) {
-      // todo
-      return false;
+        boolean isFound = false;
+        Node<T> test = head;
+
+        while(!isFound)
+        {
+            if (test.val==target)
+                isFound=true;
+            if (test.next==null)
+                break;
+            test = test.next;
+        }
+
+
+        return isFound;
     }
-    
+
     public static void main(String[] args) {
         Node<String> a = new Node<>("a");
         Node<String> b = new Node<>("b");
@@ -27,7 +39,7 @@ class Node<T> {
         // a -> b -> c -> d
 
         System.out.println(Source.linkedListFind(a, "c"));
-        
-    }
+        System.out.println(Source.linkedListFind(a, "e"));
 
-  }
+    }
+}
